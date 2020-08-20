@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Shuffle and Sort</title>
+  </head>
+  <body>
+    <div class="app">
+      <h2>Shuffle and Sort</h2>
+      <div class="game-wrapper" id="gameWrapper"></div>
+      <div class="game-controls">
+        <button class="btn" onclick="game.random()">Shuffle</button>
+        <button class="btn" onclick="game.sort()">Sort</button>
+        <button class="btn sm" onclick="game.auto()">Auto</button>
+      </div>
+      <div class="game-author">
+        Shuffle and Sort By
+        <a href="https://www.linkedin.com/in/nabanita-dasgupta/" target="_blank"
+          >Nabanita Dasgupta</a
+        >
+      </div>
+    </div>
+    <script>
+      const game = (function grid() {
+        const wrapper = document.getElementById("gameWrapper");
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let timer;
+
+        const init = (arg) => {
+          let nodes = arr.map((item) => {
+            let div = document.createElement("div");
+            div.classList.add("unit");
+            div.classList.add(`block-${item}`);
+            div.textContent = item;
+            return div;
+          });
+          wrapper.append(...nodes);
+        };
+        init(arr);
+
+        const renderTiles = (arg) => {
+          let childList = document.getElementsByClassName("unit");
+          arg.map((item, index) => {
+            childList[index].classList.remove(childList[index].classList[1]);
+            return childList[index].classList.add(`block-${item}`);
+          });
+        };
+
+        const shuffle = (arg) => {
+          let size = arg.length;
+          let temp;
+          let index;
+          while (size > 0) {
+            index = Math.floor(Math.random() * size);
+            size -= 1;
+            temp = arg[size];
+            arg[size] = arg[index];
+            arg[index] = temp;
+          }
+          return arg;
+        };
+
+        const clearAuto = () => {
+          clearInterval(timer);
+          timer = 0;
+        };
+        const auto = (arg) => {
+          if (!timer) {
+            timer = setInterval(() => {
+              shuffle(arr);
+              renderTiles(arr);
+            }, 1000);
+          }
+        };
+
+        const random = () => {
+          clearAuto();
+          shuffle(arr);
+          renderTiles(arr);
+        };
+
+        const sort = () => {
+          clearAuto();
+          renderTiles(arr.sort());
+        };
+
+        return {
+          random,
+          sort,
+          auto,
+        };
+      })();
+    </script>
+  </body>
+</html>

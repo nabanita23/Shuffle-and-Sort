@@ -1,0 +1,201 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial;
+  font-size: 14px;
+  margin: 0;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  @media screen and (max-width: 375px) {
+    justify-content: start;
+    align-items: start;
+  }
+  .app {
+    margin: auto;
+    width: 470px;
+    position: relative;
+    @media screen and (max-width: 375px) {
+      margin: 0;
+      width: 100%;
+    }
+    h2 {
+      color: #868686;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .game-controls {
+      text-align: center;
+      margin: 2rem auto;
+      button.btn {
+        font-size: 1.2rem;
+        cursor: pointer;
+        outline: none;
+        border: 0;
+        padding: 0.75rem 1.2rem;
+        position: relative;
+        width: 150px;
+        border-radius: 3rem;
+        background: #f2f2f2;
+        transition: all 100ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0px -6px 10px white, 0px 4px 15px rgba(0, 0, 0, 0.15);
+        color: #868686;
+        &.sm {
+          width: 90px;
+        }
+        &:hover {
+          color: #2b8ead;
+        }
+        &:active {
+          box-shadow: inset 0px -2px 5px rgb(255, 255, 255),
+            inset 0px 2px 5px rgba(0, 0, 0, 0.15);
+        }
+        & + .btn {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+    .game-author {
+      padding: 1rem;
+      text-align: center;
+      a {
+        text-decoration: none;
+        color: #2b8ead;
+      }
+    }
+    .game-wrapper {
+      margin: auto;
+      box-sizing: border-box;
+      width: 450px;
+      height: 450px;
+      position: relative;
+      @media screen and (max-width: 375px) {
+        width: auto;
+      }
+      .unit {
+        border-radius: 2rem;
+        position: absolute;
+        margin: 10px;
+        width: 130px;
+        height: 130px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        transition: top cubic-bezier(0.175, 0.885, 0.32, 1.275) 400ms,
+          left cubic-bezier(0.175, 0.885, 0.32, 1.275) 400ms;
+        font-size: 5rem;
+        box-shadow: 0px -6px 10px white, 0px 4px 15px rgba(0, 0, 0, 0.15);
+        background-color: #f2f2f2;
+        &.block-1 {
+          top: 0px;
+          left: 0px;
+          color: #6f98a8;
+        }
+        &.block-2 {
+          top: 0px;
+          left: 150px;
+          color: #2b8ead;
+        }
+        &.block-3 {
+          top: 0px;
+          left: 300px;
+          color: #2f454e;
+        }
+        &.block-4 {
+          top: 150px;
+          left: 0px;
+          color: #2b8ead;
+        }
+        &.block-5 {
+          top: 150px;
+          left: 150px;
+          color: #2f454e;
+        }
+        &.block-6 {
+          top: 150px;
+          left: 300px;
+          color: #333333;
+        }
+        &.block-7 {
+          top: 300px;
+          left: 0px;
+          color: #333333;
+        }
+        &.block-8 {
+          top: 300px;
+          left: 150px;
+          color: #6f98a8;
+        }
+        &.block-9 {
+          top: 300px;
+          left: 300px;
+          color: #2f454e;
+        }
+        @media screen and (max-width: 375px) {
+          box-shadow: none;
+          display: flex;
+          width: 100%;
+          height: 50px;
+          font-size: 1rem;
+          margin: 0px;
+          border-radius: 0;
+
+          &.block-1 {
+            top: 0px;
+            left: 0px;
+            color: #fff;
+            background-color: #6f98a8;
+          }
+          &.block-2 {
+            top: 50px;
+            left: 0px;
+            color: #fff;
+            background-color: #2b8ead;
+          }
+          &.block-3 {
+            top: 100px;
+            left: 0px;
+            color: #fff;
+            background-color: #2f454e;
+          }
+          &.block-4 {
+            top: 150px;
+            left: 0px;
+            color: #fff;
+            background-color: #2b8ead;
+          }
+          &.block-5 {
+            top: 200px;
+            left: 0px;
+            color: #fff;
+            background-color: #2f454e;
+          }
+          &.block-6 {
+            top: 250px;
+            left: 0px;
+            color: #fff;
+            background-color: #333333;
+          }
+          &.block-7 {
+            top: 300px;
+            left: 0px;
+            color: #fff;
+            background-color: #333333;
+          }
+          &.block-8 {
+            top: 350px;
+            left: 0px;
+            color: #fff;
+            background-color: #6f98a8;
+          }
+          &.block-9 {
+            top: 400px;
+            left: 0px;
+            color: #fff;
+            background-color: #2f454e;
+          }
+        }
+      }
+    }
+  }
+}
